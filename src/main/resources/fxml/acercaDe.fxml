@@ -5,19 +5,51 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcercaDeController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #000080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcercaDeController">
    <children>
-      <ImageView fitHeight="461.0" fitWidth="471.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnRegresar" layoutX="739.0" layoutY="446.0" mnemonicParsing="false" onAction="#btnRegresarClick" text="Regresar">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="500.0" fitWidth="520.0" layoutX="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/NAVALWAR.jpeg" />
+            <Image url="@../../../../../../../Downloads/Mar-acercade.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresar" layoutX="608.0" layoutY="375.0" mnemonicParsing="false" onAction="#btnRegresarClick" text="Regresar" textFill="RED" />
-      <Label layoutX="514.0" layoutY="30.0" text="holaaaaaaaaaaaaaaaaaaaaaaaaa" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="514.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane layoutX="553.0" layoutY="14.0" prefHeight="26.0" prefWidth="226.0" style="-fx-background-color: #B0C4DE;">
+         <children>
+            <Label layoutX="31.0" layoutY="3.0" prefHeight="0.0" prefWidth="211.0" text="Información personal: ">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="120.0" fitWidth="162.0" layoutX="342.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Pictures/OIP.jpg" />
+            <Image url="@../../../../../../../Downloads/logoUNA.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="553.0" layoutY="52.0" text="Estudiante: Ashly Lizeth Delgado Morales" textFill="#f7f1f1">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="553.0" layoutY="87.0" prefHeight="16.0" prefWidth="147.0" text="Curso: Programación II" textFill="#f7f3f3">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="553.0" layoutY="119.0" prefHeight="18.0" prefWidth="83.0" text="I ciclo 2025" textFill="#fcfafa">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="172.0" fitWidth="254.0" layoutX="565.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/marinero.jpg" />
          </image>
       </ImageView>
    </children>

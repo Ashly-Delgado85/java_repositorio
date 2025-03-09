@@ -35,5 +35,5 @@ public class AcercaDeController implements Initializable {
     private void btnRegresarClick(ActionEvent event) throws IOException {
         App.setRoot("/fxml/menu");
     }
-    
+ 
 }
