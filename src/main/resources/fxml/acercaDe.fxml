@@ -47,10 +47,5 @@
             <Font name="Franklin Gothic Heavy" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="172.0" fitWidth="254.0" layoutX="565.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/marinero.jpg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

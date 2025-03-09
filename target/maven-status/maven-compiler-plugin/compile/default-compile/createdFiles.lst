@@ -1,7 +1,7 @@
+com\mycompany\proyecto_1\ashlydelgado\App.class
+controllers\AcercaDeController.class
+controllers\PantallaJuegoController.class
 controllers\MenuController.class
 Modelos\Game.class
 module-info.class
-com\mycompany\proyecto_1\ashlydelgado\App.class
 Modelos\Player.class
-controllers\AcercaDeController.class
-controllers\PantallaJuegoController.class

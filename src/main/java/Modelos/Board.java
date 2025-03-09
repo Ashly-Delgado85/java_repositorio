@@ -8,7 +8,8 @@ package Modelos;
  *
  * @author Ashly
  */
-public class Game {
-    int nivel;
-    int tirosDelJugador;
+public class Board {
+   int [][]  matrizDelJuego = new int  [9][10];
+   
+
 }

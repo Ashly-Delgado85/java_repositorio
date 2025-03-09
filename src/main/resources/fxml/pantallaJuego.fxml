@@ -160,11 +160,6 @@
                         <Button layoutX="309.0" layoutY="169.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="42.0" text="Button" />
                      </children>
                   </GridPane>
-                  <ImageView fitHeight="50.0" fitWidth="116.0" layoutX="24.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../Downloads/submarino.png" />
-                     </image>
-                  </ImageView>
                   <Label layoutX="36.0" layoutY="394.0" text="Submarino" textFill="#faf5f5">
                      <font>
                         <Font name="Franklin Gothic Heavy" size="12.0" />

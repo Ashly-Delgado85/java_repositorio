@@ -9,5 +9,6 @@ package Modelos;
  * @author Ashly
  */
 public class Player {
+    String nombreDelJugadr;
     
 }

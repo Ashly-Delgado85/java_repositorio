@@ -8,7 +8,10 @@ package Modelos;
  *
  * @author Ashly
  */
-public class Game {
-    int nivel;
-    int tirosDelJugador;
+public  class Boats {
+    int fila;
+    int columna;
+    int tamanio;
+    String estado;
+    
 }
