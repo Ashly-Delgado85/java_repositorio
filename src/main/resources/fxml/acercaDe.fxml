@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #000080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcercaDeController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #4169E1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcercaDeController">
    <children>
-      <Button fx:id="btnRegresar" layoutX="739.0" layoutY="446.0" mnemonicParsing="false" onAction="#btnRegresarClick" text="Regresar">
+      <Button fx:id="btnRegresar" layoutX="759.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnRegresarClick" text="Regresar">
          <font>
-            <Font name="Franklin Gothic Heavy" size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="500.0" fitWidth="520.0" layoutX="-10.0" pickOnBounds="true" preserveRatio="true">
+      <TextField layoutX="7.0" layoutY="73.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="Estudiante: Ashly Lizeth Delgado Morales" />
+      <TextField layoutX="7.0" layoutY="105.0" prefHeight="28.0" prefWidth="282.0" stylesheets="@../style/Style.css" text="Curso: Programación II">
+         <styleClass>
+            <String fx:value="l" />
+            <String fx:value="jfx-pie-label" />
+         </styleClass>
+      </TextField>
+      <TextField layoutX="7.0" layoutY="145.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="Profesor: Hairol Romero Sandí" />
+      <TextField layoutX="7.0" layoutY="185.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="I ciclo 2025" />
+      <ImageView fitHeight="156.0" fitWidth="176.0" layoutX="97.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/Mar-acercade.png" />
+            <Image url="@../images/logoUNA.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="553.0" layoutY="14.0" prefHeight="26.0" prefWidth="226.0" style="-fx-background-color: #B0C4DE;">
+      <TextField layoutX="7.0" layoutY="222.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="Proyecto: Creación del juego Batalla Naval" />
+      <Separator layoutX="424.0" orientation="VERTICAL" prefHeight="505.0" prefWidth="6.0" />
+      <Separator layoutX="-6.0" layoutY="60.0" prefHeight="26.0" prefWidth="429.0" />
+      <Separator layoutX="-8.0" layoutY="279.0" prefHeight="2.0" prefWidth="430.0" />
+      <Button fx:id="btnShowDescription" layoutX="432.0" layoutY="58.0" mnemonicParsing="false" onAction="#btnShowDescriptionClick" text="Mostrar descripción del juego" />
+      <TextArea fx:id="textDescriptionShow" layoutX="432.0" layoutY="99.0" prefHeight="143.0" prefWidth="402.0" style="-fx-background-color: #000000;" styleClass="jfx-pie-label" />
+      <ImageView fitHeight="210.0" fitWidth="250.0" layoutX="511.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Mar-acercade.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="-1.0" prefHeight="26.0" prefWidth="850.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label layoutX="31.0" layoutY="3.0" prefHeight="0.0" prefWidth="211.0" text="Información personal: ">
-               <font>
-                  <Font name="Bookshelf Symbol 7" size="18.0" />
-               </font>
-            </Label>
+            <Label layoutX="8.0" layoutY="4.0" text="Pantalla de Información" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="120.0" fitWidth="162.0" layoutX="342.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/logoUNA.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="553.0" layoutY="52.0" text="Estudiante: Ashly Lizeth Delgado Morales" textFill="#f7f1f1">
-         <font>
-            <Font name="Franklin Gothic Demi" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="553.0" layoutY="87.0" prefHeight="16.0" prefWidth="147.0" text="Curso: Programación II" textFill="#f7f3f3">
-         <font>
-            <Font name="Franklin Gothic Demi" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="553.0" layoutY="119.0" prefHeight="18.0" prefWidth="83.0" text="I ciclo 2025" textFill="#fcfafa">
-         <font>
-            <Font name="Franklin Gothic Heavy" size="14.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

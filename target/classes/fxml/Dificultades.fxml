@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #4169E1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DificultadesController">
+   <children>
+      <Button fx:id="ff" layoutX="591.0" layoutY="61.0" mnemonicParsing="false" text="Seleccionar nivel de dificultad" />
+      <CheckBox fx:id="checkDificultadMenor" layoutX="507.0" layoutY="110.0" mnemonicParsing="false" onAction="#checkDificultadMenorClick" text="Dificultad Menor" />
+      <CheckBox fx:id="checkDificultadMedia" layoutX="508.0" layoutY="160.0" mnemonicParsing="false" onAction="#checkDificultadMediaClick" text="Dificultad Media" />
+      <CheckBox fx:id="checkDificultadMayor" layoutX="508.0" layoutY="214.0" mnemonicParsing="false" onAction="#checkDificultadMayorClick" text="Dificultad Mayor" />
+      <ImageView fitHeight="500.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Mar-acercade.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnIniciarDificultadMenor" layoutX="772.0" layoutY="97.0" mnemonicParsing="false" onAction="#btnIniciarDificultadMenorClick" text="Iniciar" />
+      <Button fx:id="btnIniciarDificultadMedia" layoutX="772.0" layoutY="156.0" mnemonicParsing="false" onAction="#btnIniciarDificultadMediaClick" text="Iniciar" />
+      <Button fx:id="btnIniciarDificultadMayor" layoutX="772.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnIniciarDificultadMayorClick" text="Iniciar" />
+      <Pane layoutY="1.0" prefHeight="26.0" prefWidth="850.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="10.0" layoutY="5.0" text="Pantalla de dificultades" />
+         </children>
+      </Pane>
+      <Separator layoutX="497.0" layoutY="28.0" orientation="VERTICAL" prefHeight="471.0" prefWidth="3.0" />
+      <Separator layoutX="500.0" layoutY="144.0" prefHeight="2.0" prefWidth="350.0" />
+      <Separator layoutX="500.0" layoutY="198.0" prefHeight="3.0" prefWidth="350.0" />
+      <Separator layoutX="500.0" layoutY="249.0" prefHeight="3.0" prefWidth="350.0" />
+      <Separator layoutX="500.0" layoutY="87.0" prefHeight="3.0" prefWidth="350.0" />
+      <Separator layoutX="675.0" layoutY="89.0" orientation="VERTICAL" prefHeight="161.0" prefWidth="6.0" />
+      <Label layoutX="508.0" layoutY="264.0" text="Instrucciones:" />
+      <TextField fx:id="textInstrucciones" layoutX="503.0" layoutY="282.0" prefHeight="20.0" prefWidth="255.0" text="Unicamente se puede seleccionar una opción de dificultad">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textInstruccion" layoutX="503.0" layoutY="317.0" prefHeight="20.0" prefWidth="313.0" text="Al seleccionar, proceda a darle al botón de &quot;Iniciar&quot; para empezar la batalla">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnRegresarPrincipal" layoutX="764.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnRegresarPrincipalClick" text="Regresar" />
+   </children>
+</AnchorPane>

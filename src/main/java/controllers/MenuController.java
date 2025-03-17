@@ -25,7 +25,8 @@ public class MenuController implements Initializable {
     @FXML
     private Button btnAcercaDe;
     @FXML
-    private Button btnJugar;
+    private Button btnEmpezar;
+
 
     /**
      * Initializes the controller class.
@@ -42,9 +43,11 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    private void btnJugarClick(ActionEvent event) throws IOException {
-        App.setRoot("/fxml/pantallaJuego");
+    private void btnEmpezarClick(ActionEvent event) throws IOException{
+        App.setRoot("/fxml/Dificultades");
     }
+
+    
 
 
     
