@@ -147,6 +147,46 @@
         </items>
       </SplitPane>
       <Button fx:id="btnInicarTiempo" layoutX="388.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnInicarTiempoClick" prefHeight="33.0" prefWidth="74.0" text="Iniciar" />
-      <Label fx:id="labelTiempo" layoutX="358.0" layoutY="444.0" prefHeight="18.0" prefWidth="150.0" text="Tiempo:      " />
+      <Label fx:id="labelTiempo" layoutX="387.0" layoutY="444.0" prefHeight="18.0" prefWidth="121.0" text="Tiempo:      " />
+      <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="22.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/submarino%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="84.0" layoutX="95.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/crucero%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="74.0" layoutX="193.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/acorazado.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="285.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/destructor%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="767.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/submarino%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="84.0" layoutX="671.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/crucero%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="74.0" layoutX="587.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/acorazado.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="509.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/destructor%20(1).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
