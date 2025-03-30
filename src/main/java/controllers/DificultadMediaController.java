@@ -34,7 +34,7 @@ public class DificultadMediaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-private int tiempoRestante = 60; //tiempo inical
+      private int tiempoRestante = 60; //tiempo inical
       private Timeline timeline; //creacion de un objeto para el tiempo
       
         public void iniciarCronometro() {
