@@ -4,13 +4,11 @@ controllers\DificultadesController.class
 Modelos\crucero.class
 controllers\AcercaDeController.class
 Modelos\Board.class
-controllers\DificultadMediaController.class
+Modelos\Jugador.class
 module-info.class
 Modelos\submarino.class
-controllers\DificultadNivelMenorController.class
 controllers\MenuController.class
-controllers\DificultadNivelMayorController.class
 Modelos\Game.class
-Modelos\Player.class
+controllers\IniciarJuego.class
 Modelos\destructor.class
 Modelos\acorazado.class

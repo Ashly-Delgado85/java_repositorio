@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #4169E1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcercaDeController">
+<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="988.0" style="-fx-background-color: #4169E1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcercaDeController">
    <children>
-      <Button fx:id="btnRegresar" layoutX="759.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnRegresarClick" text="Regresar">
+      <Button fx:id="btnRegresar" layoutX="859.0" layoutY="593.0" mnemonicParsing="false" onAction="#btnRegresarClick" prefHeight="46.0" prefWidth="118.0" text="Regresar">
          <font>
             <Font name="Arial" size="14.0" />
          </font></Button>
@@ -26,23 +26,18 @@
       </TextField>
       <TextField layoutX="7.0" layoutY="145.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="Profesor: Hairol Romero Sandí" />
       <TextField layoutX="7.0" layoutY="185.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="I ciclo 2025" />
-      <ImageView fitHeight="156.0" fitWidth="176.0" layoutX="97.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="156.0" fitWidth="176.0" layoutX="119.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/logoUNA.png" />
          </image>
       </ImageView>
       <TextField layoutX="7.0" layoutY="222.0" prefHeight="28.0" prefWidth="282.0" styleClass="jfx-pie-label" stylesheets="@../style/Style.css" text="Proyecto: Creación del juego Batalla Naval" />
-      <Separator layoutX="424.0" orientation="VERTICAL" prefHeight="505.0" prefWidth="6.0" />
+      <Separator layoutX="424.0" orientation="VERTICAL" prefHeight="677.0" prefWidth="10.0" />
       <Separator layoutX="-6.0" layoutY="60.0" prefHeight="26.0" prefWidth="429.0" />
       <Separator layoutX="-8.0" layoutY="279.0" prefHeight="2.0" prefWidth="430.0" />
-      <Button fx:id="btnShowDescription" layoutX="432.0" layoutY="58.0" mnemonicParsing="false" onAction="#btnShowDescriptionClick" text="Mostrar descripción del juego" />
-      <TextArea fx:id="textDescriptionShow" layoutX="432.0" layoutY="99.0" prefHeight="143.0" prefWidth="402.0" style="-fx-background-color: #000000;" styleClass="jfx-pie-label" />
-      <ImageView fitHeight="210.0" fitWidth="250.0" layoutX="511.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Mar-acercade.png" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutY="-1.0" prefHeight="26.0" prefWidth="850.0" style="-fx-background-color: #FFFFFF;">
+      <Button fx:id="btnShowDescription" layoutX="570.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnShowDescriptionClick" text="Mostrar descripción del juego" />
+      <TextArea fx:id="textDescriptionShow" layoutX="450.0" layoutY="164.0" prefHeight="224.0" prefWidth="499.0" style="-fx-background-color: #000000;" styleClass="jfx-pie-label" />
+      <AnchorPane layoutY="1.0" prefHeight="26.0" prefWidth="1007.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Label layoutX="8.0" layoutY="4.0" text="Pantalla de Información" />
          </children>

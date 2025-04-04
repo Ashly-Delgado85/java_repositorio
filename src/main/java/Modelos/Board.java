@@ -9,7 +9,5 @@ package Modelos;
  * @author Ashly
  */
 public class Board {
-   int [][]  matrizDelJuego = new int  [9][10];
-   
-
+    
 }
