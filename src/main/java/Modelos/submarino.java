@@ -8,6 +8,6 @@ package Modelos;
  *
  * @author Ashly
  */
-public class submarino extends Boats {
+public class submarino extends Barcos {
     
 }

@@ -8,17 +8,17 @@ package Modelos;
  *
  * @author Ashly
  */
-public abstract class Boats {
+public abstract class Barcos {
     int fila;
     int columna;
     int tamanio;
     String estado;
 
-     public Boats(){
+     public Barcos(){
          
      }
      
-    public Boats(int fila, int columna, int tamanio, String estado) {
+    public Barcos(int fila, int columna, int tamanio, String estado) {
         this.fila = fila;
         this.columna = columna;
         this.tamanio = tamanio;

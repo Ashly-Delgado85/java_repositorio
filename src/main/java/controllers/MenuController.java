@@ -38,11 +38,13 @@ public class MenuController implements Initializable {
     
 
     @FXML
+    //manda a pantalla del acerca
     private void btnAcercaDeClick(ActionEvent event) throws IOException {
         App.setRoot("/fxml/acercaDe");
     }
 
     @FXML
+    //manda a pantalla de dificultad
     private void btnEmpezarClick(ActionEvent event) throws IOException{
         App.setRoot("/fxml/Dificultades");
     }

@@ -4,7 +4,8 @@
  */
 package controllers;
 
-import Modelos.Game;
+import Modelos.Juego;
+import Modelos.Jugador;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -13,11 +14,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -330,9 +334,6 @@ public class IniciarJuego implements Initializable {
     private GridPane gridPanel1;
     @FXML
     private GridPane gridPanel2;
-   
-    
-    Game juego;
     @FXML
     private RadioButton checkJugadorVSjugador;
     @FXML
@@ -344,15 +345,34 @@ public class IniciarJuego implements Initializable {
     @FXML
     private CheckBox checkDificultadMayor;
     
-    private int tiempoRestante = 0; //tiempo inical
-    
-    private Timeline timeline;
+    private int tiempoRestante = 0; 
     
     private int nivel;
+    
+    Juego juego;
+    
+    boolean JuegoActivo= false;
+    boolean juegaLaComputadora = false;
+    int turnoJuego = 1; // juega jugador 1, 2 va jugador 2
+    
+    private Timeline timeline;
     @FXML
-    private Button btnOcultarVer2;
+    private TextField textEstado1Barco;
     @FXML
-    private Button btnOcultarVer1;
+    private TextField textEstado2Barco;
+    @FXML
+    private TextArea textIniciaJuego;
+    @FXML
+    private TextArea textImagenes;
+    @FXML
+    private TextField textTiempo;
+    @FXML
+    private Label labelIniciar;
+    @FXML
+    private RadioButton rdbVerTablero1;
+    @FXML
+    private RadioButton rdbVerTablero2;
+    
     /**
      * Initializes the controller class.
      */
@@ -362,11 +382,155 @@ public class IniciarJuego implements Initializable {
         checkDificultadMenor.setSelected(false);
         checkDificultadMedia.setSelected(false);
         checkDificultadMayor.setSelected(false);
-        
+        textIniciaJuego.setEditable(false);
+        textImagenes.setEditable(false);
+        textTiempo.setEditable(false);
+        textEstado1Barco.setEditable(false);
+        textEstado2Barco.setEditable(false);
         // El botón de iniciar está deshabilitado al inicio
         btnInicarTiempo.setDisable(true);
-      
-    } 
+        
+    }   
+    
+    @FXML
+    private void btnIniciarJuego(ActionEvent event) {
+        iniciarCronometro();
+        labelIniciar.setVisible(false);
+        btnInicarTiempo.setVisible(false);//oculta el botón de iniciar
+        String nombreJugador1 = textNombreJugador1.getText(); //obtiene el nombre del jugagor1
+        String nombreJugador2 = textNombreJugador2.getText();//obtiene el nombre del jugagor2
+        JuegoActivo = true;
+        //creación de un objeto Juego con los datos ingresados
+        juego = new Juego(nivel,nombreJugador1,nombreJugador2);
+        int[][] matriz = juego.getJugador1().getMatrizDelJuego();//obitene la matriz del jugador1     
+        agregarEventosBoton(gridPanel2,2);// se habilita poder disparar jugador 1
+        if(checkJugadorVScompu.isSelected()){
+            juegaLaComputadora = true;
+        }else{
+            agregarEventosBoton(gridPanel1,1);// se habilita poder disparar jugador 2
+        }
+    }
+    
+    private void agregarEventosBoton(GridPane gridPane,int jugador) {
+        String posicionFila;
+        String posicionColumnas;
+        for (Node node : gridPane.getChildren()) {
+            if(node.getId().contains("btn")){ // Solo los nodos que son botones (con id que contienen "btn")
+                posicionFila = node.getId().substring(4, 5);
+                posicionColumnas = node.getId().substring(5, 6);
+                int fila = Integer.parseInt(posicionFila);
+                int columna = Integer.parseInt(posicionColumnas);
+                if (jugador==1) {
+                    node.setOnMouseClicked(e -> disparar1(fila,columna,gridPane));
+                }else{
+                    node.setOnMouseClicked(e -> disparar2(fila,columna,gridPane));
+                }
+                
+            }
+        }
+    }
+
+    private void disparar1(int fila, int columna,GridPane gridPane) {
+        if(turnoJuego == 2){
+            String asignarExplosivo = "explosivo" ;
+            String asignarAgua ="aguaMar";
+            for (Node node : gridPane.getChildren()) {
+                if(node.getId().contains("btn"+"1"+fila+columna)){
+                    if((juego.getJugador1().devolverValor(fila, columna)>=0)){
+                        if(juego.getJugador1().devolverValor(fila, columna)!=0){
+                            node.setStyle(estiloButton(asignarExplosivo));
+                            juego.getJugador1().atacar(fila, columna,0);
+                            textEstado1Barco.setText(juego.getJugador1().estadoDelBarco(fila, columna));
+                            //mostrarMensajeDeTurnoExtra("Turno extra para el jugador 2");
+                        }else{
+                            node.setStyle(estiloButton(asignarAgua));
+                            juego.getJugador1().atacar(fila, columna,1);
+                            textEstado1Barco.setText("AGUA");
+                            turnoJuego = 1;
+                        }
+                    }else{
+                        mostrarMensaje("casilla ya atacada");
+                    }
+                }
+            }
+        }else{
+            mostrarMensaje("El jugador 1 debe disparar en el tablero del rival");
+        }
+    }
+    
+    private void disparar2(int fila, int columna,GridPane gridPane) {
+        if(turnoJuego == 1){
+            String asignarExplosivo = "explosivo" ;
+            String asignarAgua ="aguaMar";
+            for (Node node : gridPane.getChildren()) {
+                if(node.getId().contains("btn"+"2"+fila+columna)){
+                    if((juego.getJugador2().devolverValor(fila, columna)>=0)){
+                        if(juego.getJugador2().devolverValor(fila, columna)!=0){
+                            node.setStyle(estiloButton(asignarExplosivo));
+                            juego.getJugador2().atacar(fila, columna,0);
+                            textEstado2Barco.setText(juego.getJugador2().estadoDelBarco(fila, columna));
+                           // mostrarMensajeDeTurnoExtra("Turno extra para el jugador 1");
+                        }else{
+                            node.setStyle(estiloButton(asignarAgua));
+                            juego.getJugador2().atacar(fila, columna,1);
+                            textEstado2Barco.setText("AGUA");
+                            turnoJuego = 2;
+                        }
+                    }else{
+                        mostrarMensaje("Casilla ya atacada");
+                    }
+                }
+            }
+        }else{
+            mostrarMensaje("El jugador 2 debe disparar en el tablero del rival");
+        }
+        if(juegaLaComputadora && turnoJuego == 2){
+            juegoAutomatico();
+        }
+    }
+    
+    public void juegoAutomatico(){
+        boolean repite = true;
+        while(repite){
+            int fila = (int) (Math.random() * 9);
+            int columna = (int) (Math.random() * 8);
+            System.out.println("disparando a la fila: "+fila+" columna:"+columna);
+            if((juego.getJugador1().devolverValor(fila, columna)<0)){
+                repite= true;
+            }else{
+                if(juego.getJugador1().devolverValor(fila, columna)==0){
+                    disparar1(fila, columna,gridPanel1);
+                    repite= false;
+                }else{
+                    disparar1(fila, columna,gridPanel1);
+                    repite= true;
+                }
+            }
+        }
+    }
+    
+    public void mostrarMensajeDeTurnoExtra(String mensaje){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(null);
+        alert.setHeaderText(null); 
+        alert.setContentText(mensaje); 
+        alert.showAndWait();
+    }
+
+    public void mostrarMensaje(String mensaje) { 
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Problema...");
+        alert.setHeaderText("Disparo no valido");
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+    
+    private String estiloButton(String nombre){
+        return "-fx-background-image: url(\"/ImagenesPartes/" + nombre + ".png\"); "
+            + "-fx-background-repeat: no-repeat; "
+            + "-fx-background-position: center center; "
+            + "-fx-background-size: 90% 90%"; 
+    }
     
     //creacion de un objeto para el tiempo  
     public void iniciarCronometro() {
@@ -376,7 +540,7 @@ public class IniciarJuego implements Initializable {
             if (tiempoRestante <= 0) {
                 timeline.stop(); //se detiene el tiempo a llegar a cero
                 labelTiempo.setText("Fin de la batalla");
-                // Aquí puedes agregar alguna acción cuando el tiempo acabe
+                // acción cuando el tiempo acabe
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE); // Se ejecuta indefinidamente
@@ -384,38 +548,31 @@ public class IniciarJuego implements Initializable {
     }
     
     @FXML
-    private void btnInicarTiempoClick(ActionEvent event) {
-        iniciarCronometro();
-        btnInicarTiempo.setVisible(false);
-        String nombreJugador1 = textNombreJugador1.getText();
-        String nombreJugador2 = textNombreJugador2.getText();
-        
-        juego = new Game(nivel,nombreJugador1,nombreJugador2);
-        int[][] matriz = juego.getJugador1().getMatrizDelJuego();        
-        
-    }
-    
-    
-
-
-    @FXML
     private void clickcheckJugadorVSjugador(ActionEvent event) {
-        checkJugadorVScompu.setSelected(false);
-        textNombreJugador1.setVisible(true);
-        textNombreJugador1.setEditable(true);
-        textNombreJugador2.setVisible(true);
-        textNombreJugador2.setEditable(true);
-        textNombreJugador2.setText("");
+        if (checkJugadorVSjugador.isSelected()) {
+            // Desmarcar el otro tipo de juego
+            checkJugadorVScompu.setSelected(false);
+            // Mostrar campos de texto para ambos jugadores
+            textNombreJugador1.setVisible(true);
+            textNombreJugador1.setEditable(true);
+            textNombreJugador2.setVisible(true);
+            textNombreJugador2.setEditable(true);
+            textNombreJugador2.setText(""); // Limpiar el nombre del segundo jugador
+        }
     }
 
     @FXML
     private void clickcheckJugadorVScompu(ActionEvent event) {
-        checkJugadorVSjugador.setSelected(false);
-        textNombreJugador1.setVisible(true);
-        textNombreJugador1.setEditable(true);
-        textNombreJugador2.setVisible(true);
-        textNombreJugador2.setText("Computadora");
-        textNombreJugador2.setEditable(false);
+        if (checkJugadorVScompu.isSelected()) {
+            // Desmarcar el otro tipo de juego
+            checkJugadorVSjugador.setSelected(false);
+            // Mostrar campos de texto para un jugador y poner "Computadora" para el segundo
+            textNombreJugador1.setVisible(true);
+            textNombreJugador1.setEditable(true);
+            textNombreJugador2.setVisible(true);
+            textNombreJugador2.setText("Computadora");
+            textNombreJugador2.setEditable(false); // No editable para la computadora
+        }
     }
 
     @FXML
@@ -424,9 +581,9 @@ public class IniciarJuego implements Initializable {
             checkDificultadMedia.setSelected(false);
             checkDificultadMayor.setSelected(false);
         }
-        actualizacionEstadoBoton();
-        tiempoRestante = 20;
-        nivel = 1;
+        actualizacionEstadoBoton(); //actualiza el estado del boton de iniciar
+        tiempoRestante = 180; //tiempo establecido para dificultad menor
+        nivel = 1; //nivel de dificultad
     }
 
     @FXML
@@ -436,7 +593,7 @@ public class IniciarJuego implements Initializable {
             checkDificultadMayor.setSelected(false);
         }
         actualizacionEstadoBoton();
-        tiempoRestante = 30;
+        tiempoRestante = 120;
         nivel = 2;
     }
 
@@ -447,7 +604,7 @@ public class IniciarJuego implements Initializable {
             checkDificultadMedia.setSelected(false);
         }
         actualizacionEstadoBoton();
-        tiempoRestante = 40;
+        tiempoRestante = 20;
         nivel = 3;
     }
     
@@ -457,23 +614,55 @@ public class IniciarJuego implements Initializable {
         checkDificultadMedia.isSelected() || 
         checkDificultadMayor.isSelected()));
     }
-
-    @FXML
-    private void clickOcultarVer2(ActionEvent event) {
-        pintarBarcosJuego(gridPanel2,juego.getJugador2().getMatrizDelJuego());
-    }
-
-    @FXML
-    private void clickOcultarVer1(ActionEvent event) {
-        pintarBarcosJuego(gridPanel1,juego.getJugador1().getMatrizDelJuego());
+    
+    private void ocultarTablero(GridPane gridPane, int[][] matriz,int jugador){
+        String posicionFila;
+        String posicionColumnas;
+        int fila;
+        int columna;
+        for (Node node : gridPane.getChildren()) {
+            if(node.getId().contains("btn")){
+                posicionFila = node.getId().substring(4, 5);
+                posicionColumnas = node.getId().substring(5, 6);
+                fila = Integer.parseInt(posicionFila);
+                columna = Integer.parseInt(posicionColumnas);
+                if(jugador==1){
+                   if((juego.getJugador1().devolverValor(fila, columna)>=0)){
+                        node.setStyle("");   
+                    }  
+                }else{
+                    if((juego.getJugador2().devolverValor(fila, columna)>=0)){
+                        node.setStyle("");   
+                    } 
+                }
+            }
+        }
     }
     
-    private String estiloButton(String nombre){
-        return "-fx-background-image: url(\"/ImagenesPartes/"+nombre+".png\"); "
-                        + "-fx-background-repeat: stretch; "
-                        + "-fx-background-position: center center; " ;
+     @FXML
+    private void btnTablero1Click(ActionEvent event) {
+        if(JuegoActivo){
+            if(rdbVerTablero1.isSelected()){
+                pintarBarcosJuego(gridPanel1,juego.getJugador1().getMatrizDelJuego());
+            }else{
+                ocultarTablero(gridPanel1,juego.getJugador1().getMatrizDelJuego(),1);
+            }
+        } 
     }
-    
+
+    @FXML
+    private void btnTablero2Click(ActionEvent event) {
+        if(JuegoActivo){
+            if(rdbVerTablero2.isSelected()){
+                pintarBarcosJuego(gridPanel2,juego.getJugador2().getMatrizDelJuego());
+            }else{
+                ocultarTablero(gridPanel2,juego.getJugador2().getMatrizDelJuego(),2);
+            }
+        }
+    }
+
+    //define las imagenenes de los barcos
+    //funcion que pinta los barcos en los tableros por medio el gridpane
     private void pintarBarcosJuego(GridPane gridPane, int[][] matriz) {
         String submarino = "submarino-part1" ;
         String destructor1 = "destructor-part1" ;
@@ -495,22 +684,30 @@ public class IniciarJuego implements Initializable {
         String acorazado2Vertical ="acorazado2-part2"; 
         String acorazado3Vertical = "acorazado2-part3" ;
         String acorazado4Vertical ="acorazado2-part4";
+        String aguaMar ="aguaMar";
         
         String posicionFila;
         String posicionColumnas;
         int fila;
         int columna;
+         // Iteración sobre todos los nodos (botones) dentro del GridPane
         for (Node node : gridPane.getChildren()) {
-            if(node.getId().contains("btn")){
-                //System.out.println(node.getId());
+            if(node.getId().contains("btn")){ // Solo los nodos que son botones (con id que contienen "btn")
                 posicionFila = node.getId().substring(4, 5);
                 posicionColumnas = node.getId().substring(5, 6);
                 fila = Integer.parseInt(posicionFila);
                 columna = Integer.parseInt(posicionColumnas);
                 if(matriz[fila][columna]<0){
-                    node.setStyle(explosivo);   
+                    if(matriz[fila][columna]==-2){
+                      node.setStyle(estiloButton(aguaMar));     
+                    }
+                    if(matriz[fila][columna]==-1){
+                      node.setStyle(estiloButton(explosivo));     
+                    }
+                    if(matriz[fila][columna]<-3){
+                      node.setStyle(estiloButton(explosivo));     
+                    }
                 }else{
-                    
                     switch(matriz[fila][columna]){
                         case 1:
                             node.setStyle(estiloButton(submarino));
@@ -574,5 +771,8 @@ public class IniciarJuego implements Initializable {
             }
         }
     }
-    
+
+   
+   
+
 }

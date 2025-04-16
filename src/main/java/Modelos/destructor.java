@@ -8,6 +8,6 @@ package Modelos;
  *
  * @author Ashly
  */
-public class destructor extends Boats {
+public class destructor extends Barcos {
     
 }

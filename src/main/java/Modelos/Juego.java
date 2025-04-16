@@ -8,17 +8,17 @@ package Modelos;
  *
  * @author Ashly
  */
-public class Game {
+public class Juego {
     int nivel;
     
     Jugador jugador1;
     Jugador jugador2;
     
-    public Game() {
+    public Juego() {
         
     }
 
-    public Game(int nivel, String nombreJugador1, String nombreJugador2) {
+    public Juego(int nivel, String nombreJugador1, String nombreJugador2) {
         this.nivel = nivel;
         jugador1 = new Jugador(nombreJugador1,10);
         jugador2 = new Jugador(nombreJugador2,10);
