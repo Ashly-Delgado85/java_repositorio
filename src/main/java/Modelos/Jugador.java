@@ -4,6 +4,8 @@
  */
 package Modelos;
 
+import static java.lang.Math.abs;
+
 /**
  *
  * @author Ashly
@@ -100,6 +102,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar barco con la random
     public static int[][] asignaSubmarinos(int[][] matriz){
         int numFila = (int) (Math.random() * 9);
         int numColumna = (int) (Math.random() * 8);
@@ -111,6 +114,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar destructor con la random
     public static int[][] asignaDestructores(int[][] matriz){
         int numFila = (int) (Math.random() * 9);
         int numColumna = (int) (Math.random() * 7);
@@ -124,6 +128,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar destructor de forma vertical con la random
     public static int[][] asignaDestructoresVertical(int[][] matriz){
         int numFila = (int) (Math.random() * 7);
         int numColumna = (int) (Math.random() * 6);
@@ -137,6 +142,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar crucero con la random
     public static int[][] asignaCrucero(int[][] matriz){
         int numFila = (int) (Math.random() * 9);
         int numColumna = (int) (Math.random() * 6);
@@ -152,6 +158,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar crucero vertical con la random
     public static int[][] asignaCruceroVertical(int[][] matriz){
         int numFila = (int) (Math.random() * 6);
         int numColumna = (int) (Math.random() * 6);
@@ -167,6 +174,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar acorazado con la random
     public static int[][] asignaAcorazado(int[][] matriz){
         int numColumna = (int) (Math.random() * 5);
         int numFila = (int) (Math.random() * 9);
@@ -177,6 +185,7 @@ public class Jugador {
         return matriz;
     }
     
+    //funcion de asignar acorazado vertical con la random
     public static int[][] asignaAcorazadoVertical(int[][] matriz){
         int numFila = (int) (Math.random() * 5);
         int numColumna = (int) (Math.random() * 6);
@@ -186,4 +195,155 @@ public class Jugador {
         matriz[numFila+3][numColumna] = 48;
         return matriz;
     }
-}
+    
+    public int devolverValor(int fila, int columna){
+        return matrizDelJuego[fila][columna];
+    }
+    
+    public void atacar(int fila, int columna,int modo){
+        if(modo==0){
+            matrizDelJuego[fila][columna]=matrizDelJuego[fila][columna]*-1;
+        }else{
+            matrizDelJuego[fila][columna]=-2;
+        }
+    }
+    
+    public String estadoDelBarco(int fila, int columna){
+        String respuesta="";
+        switch(matrizDelJuego[fila][columna]){
+            case -1:
+                respuesta= "Submarino hundido";
+            break;
+            case -21:
+                if(matrizDelJuego[fila][columna+1]<0){
+                    respuesta= "Destructor hundido";
+                }else{
+                    respuesta= "Destructor averiado";
+                }
+            break;
+            case -22:
+                if(matrizDelJuego[fila][columna-1] < 0){
+                    respuesta= "Destructor hundido";
+                }else{
+                    respuesta= "Destructor averiado";
+                }
+            break;
+            case -25:
+                if(matrizDelJuego[fila+1][columna]<0){
+                    respuesta= "Destructor hundido";
+                }else{
+                    respuesta= "Destructor averiado";
+                }
+            break;
+            case -26:
+                if(matrizDelJuego[fila-1][columna] < 0){
+                    respuesta= "Destructor hundido";
+                }else{
+                    respuesta= "Destructor averiado";
+                }
+            break;
+            case -31:
+                if(matrizDelJuego[fila][columna+1] < 0 && matrizDelJuego[fila][columna+2] <0 ){
+                    respuesta= "Crucero hundido";
+                }else{
+                    respuesta= "Crucero averiado";
+                }
+            break;
+            case -32:
+                if(matrizDelJuego[fila][columna+1] < 0 && matrizDelJuego[fila][columna-1] <0){   
+                    respuesta= "Crucero hundido";
+                }else{
+                    respuesta= "Crucero averiado";
+                }
+            break;
+            case -33:
+                if(matrizDelJuego[fila][columna-1] < 0 && matrizDelJuego[fila][columna-2] <0){  
+                    respuesta= "Crucero hundido";
+                }else{  
+                    respuesta= "Crucero averiado";
+                }
+            break;
+            case -35:
+                if(matrizDelJuego[fila+1][columna] < 0 && matrizDelJuego[fila+2][columna] <0){   
+                    respuesta= "Crucero hundido";
+                }else{
+                    respuesta= "Crucero averiado"; 
+                }
+            break;
+            case -36:
+                if(matrizDelJuego[fila+1][columna] < 0 && matrizDelJuego[fila-1][columna] <0){  
+                     respuesta= "Crucero hundido";
+                }else{
+                    respuesta= "Crucero averiado"; 
+                } 
+            break;
+            case -37:
+               if(matrizDelJuego[fila-1][columna] < 0 && matrizDelJuego[fila-2][columna] <0){  
+                    respuesta= "Crucero hundido";
+               }else{
+                    respuesta= "Crucero averiado"; 
+               }
+            break;
+            case -41:
+                if(matrizDelJuego[fila][columna+1] < 0 && matrizDelJuego[fila][columna+2] <0 && matrizDelJuego[fila][columna+3] <0){ 
+                    respuesta= "Acorazado hundido";
+                }else{
+                    respuesta= "Acorazado averiado"; 
+                }
+            break;
+            case -42:
+                if(matrizDelJuego[fila][columna-1] < 0 && matrizDelJuego[fila][columna+1] <0 && matrizDelJuego[fila][columna+2] <0){ 
+                  respuesta= "Acorazado hundido";
+                }else{
+                    respuesta= "Acorazado averiado";   
+                }           
+            break;
+            case -43:
+                if(matrizDelJuego[fila][columna-1] < 0 && matrizDelJuego[fila][columna-2] <0 && matrizDelJuego[fila][columna+1] <0){ 
+                  respuesta= "Acorazado hundido"; 
+                }else{
+                    respuesta= "Acorazado averiado";      
+            }
+            break;
+            case -44:
+                if(matrizDelJuego[fila][columna-1] < 0 && matrizDelJuego[fila][columna-2] <0 && matrizDelJuego[fila][columna-3] <0){ 
+                    respuesta= "Acorazado hundido"; 
+                }else{
+                    respuesta= "Acorazado averiado";       
+                }
+            break;
+            case -45:
+                if(matrizDelJuego[fila+1][columna] < 0 && matrizDelJuego[fila+2][columna] <0 && matrizDelJuego[fila+3][columna] <0){ 
+                    respuesta= "Acorazado hundido"; 
+                }else{
+                    respuesta= "Acorazado averiado";    
+                }
+            break;
+            case -46: 
+                if(matrizDelJuego[fila-1][columna] < 0 && matrizDelJuego[fila+1][columna] <0 && matrizDelJuego[fila+2][columna] <0){ 
+                    respuesta= "Acorazado hundido"; 
+                }else{
+                    respuesta= "Acorazado averiado";     
+                }
+            break;
+            case -47:
+                if(matrizDelJuego[fila-1][columna] < 0 && matrizDelJuego[fila-2][columna] <0 && matrizDelJuego[fila+1][columna] <0){ 
+                    respuesta= "Acorazado hundido"; 
+                }else{
+                    respuesta= "Acorazado averiado";  
+                }
+            break;
+            case -48:
+                if(matrizDelJuego[fila-1][columna] < 0 && matrizDelJuego[fila-2][columna] <0 && matrizDelJuego[fila-3][columna] <0){ 
+                    respuesta= "Acorazado hundido"; 
+                }else{
+                    respuesta= "Acorazado averiado";   
+                }
+            break;
+
+        }
+        
+        return respuesta;
+    }
+    
+ }

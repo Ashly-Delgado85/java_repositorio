@@ -1,14 +1,13 @@
-Modelos\Boats.class
 com\mycompany\proyecto_1\ashlydelgado\App.class
 controllers\DificultadesController.class
 Modelos\crucero.class
+Modelos\Barcos.class
 controllers\AcercaDeController.class
-Modelos\Board.class
+Modelos\Juego.class
 Modelos\Jugador.class
 module-info.class
 Modelos\submarino.class
 controllers\MenuController.class
-Modelos\Game.class
 controllers\IniciarJuego.class
 Modelos\destructor.class
 Modelos\acorazado.class

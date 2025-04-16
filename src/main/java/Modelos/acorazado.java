@@ -8,6 +8,6 @@ package Modelos;
  *
  * @author Ashly
  */
-public class acorazado extends Boats  {
+public class acorazado extends Barcos  {
     
 }

@@ -8,7 +8,7 @@ package Modelos;
  *
  * @author Ashly
  */
-public class crucero extends Boats{
+public class crucero extends Barcos{
 
     public crucero() {
     }
