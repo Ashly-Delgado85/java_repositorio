@@ -6,28 +6,22 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="1107.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DificultadesController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" styleClass="anchor-pane" stylesheets="@../com/mycompany/proyecto_1/ashlydelgado/Style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DificultadesController">
    <children>
-      <Pane layoutY="1.0" prefHeight="26.0" prefWidth="1107.0" style="-fx-background-color: #FFFFFF;">
-         <children>
-            <Label layoutX="10.0" layoutY="5.0" text="Pantalla de dificultades" />
-         </children>
-      </Pane>
-      <ImageView fitHeight="667.0" fitWidth="1224.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="830.0" fitWidth="1206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/batalla.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresarPrincipal" layoutX="353.0" layoutY="404.0" mnemonicParsing="false" onAction="#btnRegresarPrincipalClick" prefHeight="39.0" prefWidth="82.0" text="Regresar" />
-      <Button fx:id="btnIniciarDificultad" layoutX="168.0" layoutY="404.0" mnemonicParsing="false" onAction="#btnClickIniciarDificultad" prefHeight="39.0" prefWidth="82.0" text="Iniciar" />
-      <ImageView fitHeight="546.0" fitWidth="402.0" layoutX="587.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnRegresarPrincipal" layoutX="320.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnRegresarPrincipalClick" prefHeight="39.0" prefWidth="82.0" text="Regresar" />
+      <Button fx:id="btnIniciarDificultad" layoutX="216.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnClickIniciarDificultad" prefHeight="39.0" prefWidth="82.0" text="Iniciar" />
+      <ImageView fitHeight="546.0" fitWidth="402.0" layoutX="663.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/instruccionesJuego.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="textInstrucciones" layoutX="18.0" layoutY="173.0" prefHeight="210.0" prefWidth="534.0" />
-      <Label layoutX="209.0" layoutY="131.0" prefHeight="26.0" prefWidth="132.0" text="Instrucciones generales:" />
+      <TextArea fx:id="textInstrucciones" layoutX="72.0" layoutY="180.0" prefHeight="238.0" prefWidth="534.0" />
+      <Label layoutX="250.0" layoutY="141.0" prefHeight="26.0" prefWidth="169.0" text="Instrucciones generales:" />
    </children>
 </AnchorPane>

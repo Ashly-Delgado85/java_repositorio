@@ -4,6 +4,7 @@
  */
 package controllers;
 
+import Modelos.Sonido;
 import com.mycompany.proyecto_1.ashlydelgado.App;
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Ashly
  */
+//pantalla de informacion del juego y del estudiante
 public class AcercaDeController implements Initializable {
 
     @FXML
@@ -35,6 +37,8 @@ public class AcercaDeController implements Initializable {
     private TextArea textDescriptionShow;
     @FXML
     private ImageView imageDescription;
+    
+     Sonido sound = new Sonido();
 
     /**
      * Initializes the controller class.
@@ -42,15 +46,18 @@ public class AcercaDeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
     }    
 
     @FXML
     private void btnRegresarClick(ActionEvent event) throws IOException {
         App.setRoot("/fxml/menu");
+        sonidoClick();
     }
 
     @FXML
     private void btnShowDescriptionClick(ActionEvent event)  throws IOException{
+        sonidoClick();
         textDescriptionShow.setText("Batalla Naval, también conocido como Hundir la Flota:\n" +
         "Es un juego de estrategia y lógica donde dos jugadores intentan\n" +
         "hundir los barcos del oponente antes de que el suyo sea destruido.\n" +
@@ -60,8 +67,14 @@ public class AcercaDeController implements Initializable {
     );
     textDescriptionShow.setVisible(true);
     textDescriptionShow.setEditable(false);
-       textDescriptionShow.setStyle("-fx-text-fill: black;");
+
     }
+    
+    private void sonidoClick(){
+        sound.cargarSonido("/sonidos/click.wav",false);
+        sound.sonar();
+    }
+    
 
 
 

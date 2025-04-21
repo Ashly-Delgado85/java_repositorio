@@ -14,14 +14,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" layoutX="-1.0" prefHeight="677.0" prefWidth="1107.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.IniciarJuego">
+<AnchorPane id="AnchorPane" layoutX="-1.0" prefHeight="800.0" prefWidth="1200.0" styleClass="anchor-pane" stylesheets="@../com/mycompany/proyecto_1/ashlydelgado/Style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.IniciarJuego">
    <children>
-      <ImageView fitHeight="684.0" fitWidth="1115.0" layoutX="2.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="1208.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/batalla.png" />
          </image>
       </ImageView>
-      <GridPane fx:id="gridPanel1" layoutX="77.0" layoutY="106.0" prefHeight="450.0" prefWidth="474.0">
+      <GridPane fx:id="gridPanel1" layoutX="54.0" layoutY="147.0" prefHeight="450.0" prefWidth="474.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -120,7 +120,7 @@
          </children>
       </GridPane>
       <ButtonBar layoutX="528.0" layoutY="332.0" prefHeight="14.0" prefWidth="31.0" />
-      <GridPane fx:id="gridPanel2" layoutX="583.0" layoutY="105.0" prefHeight="450.0" prefWidth="474.0">
+      <GridPane fx:id="gridPanel2" layoutX="651.0" layoutY="149.0" prefHeight="450.0" prefWidth="474.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -218,50 +218,50 @@
             <Button fx:id="btn203" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="104.0" GridPane.columnIndex="3" />
          </children>
       </GridPane>
-      <TextField fx:id="textNombreJugador1" layoutX="370.0" layoutY="630.0" prefHeight="26.0" prefWidth="136.0" />
-      <TextField fx:id="textNombreJugador2" layoutX="660.0" layoutY="628.0" prefHeight="26.0" prefWidth="136.0" />
-      <TextField fx:id="textEstado1Barco" layoutX="412.0" layoutY="76.0" prefHeight="26.0" prefWidth="144.0" />
-      <TextField fx:id="textEstado2Barco" layoutX="583.0" layoutY="76.0" prefHeight="26.0" prefWidth="144.0" />
-      <TextField layoutX="-1.0" layoutY="-1.0" prefHeight="26.0" prefWidth="1115.0" text="Pantalla de Juego" />
-      <TextArea fx:id="textIniciaJuego" layoutX="22.0" layoutY="599.0" prefHeight="71.0" prefWidth="304.0" />
-      <CheckBox fx:id="checkDificultadMedia" layoutX="28.0" layoutY="612.0" mnemonicParsing="false" onAction="#checkDificultadMediaClick" prefHeight="46.0" prefWidth="110.0" text="Dificultad Media" />
-      <CheckBox fx:id="checkDificultadMenor" layoutX="29.0" layoutY="594.0" mnemonicParsing="false" onAction="#checkDificultadMenorClick" prefHeight="34.0" prefWidth="122.0" text="Dificultad Menor" />
-      <CheckBox fx:id="checkDificultadMayor" layoutX="28.0" layoutY="641.0" mnemonicParsing="false" onAction="#checkDificultadMayorClick" prefHeight="39.0" prefWidth="122.0" text="Dificultad Mayor" />
-      <Label layoutX="185.0" layoutY="597.0" prefHeight="18.0" prefWidth="82.0" text="Tipo de juego:" />
-      <RadioButton fx:id="checkJugadorVSjugador" layoutX="165.0" layoutY="624.0" mnemonicParsing="false" onAction="#clickcheckJugadorVSjugador" text="Jugador VS jugador" />
-      <RadioButton fx:id="checkJugadorVScompu" layoutX="164.0" layoutY="650.0" mnemonicParsing="false" onAction="#clickcheckJugadorVScompu" text="jugador VS computadora" />
-      <Label layoutX="370.0" layoutY="612.0" text="Jugador 1" />
-      <Label layoutX="662.0" layoutY="610.0" text="Jugador 2" />
-      <TextArea fx:id="textImagenes" layoutX="841.0" layoutY="609.0" prefHeight="58.0" prefWidth="237.0" />
-      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="848.0" layoutY="621.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="textNombreJugador1" layoutX="392.0" layoutY="702.0" prefHeight="26.0" prefWidth="136.0" />
+      <TextField fx:id="textNombreJugador2" layoutX="656.0" layoutY="702.0" prefHeight="26.0" prefWidth="136.0" />
+      <TextField fx:id="textEstado1Barco" layoutX="388.0" layoutY="116.0" prefHeight="22.0" prefWidth="144.0" />
+      <TextField fx:id="textEstado2Barco" layoutX="651.0" layoutY="116.0" prefHeight="28.0" prefWidth="144.0" />
+      <TextArea fx:id="textIniciaJuego" layoutX="13.0" layoutY="632.0" prefHeight="78.0" prefWidth="330.0" />
+      <CheckBox fx:id="checkDificultadMedia" layoutX="18.0" layoutY="648.0" mnemonicParsing="false" onAction="#checkDificultadMediaClick" prefHeight="46.0" prefWidth="122.0" text="Dificultad Media" />
+      <CheckBox fx:id="checkDificultadMenor" layoutX="19.0" layoutY="630.0" mnemonicParsing="false" onAction="#checkDificultadMenorClick" prefHeight="34.0" prefWidth="122.0" text="Dificultad Menor" />
+      <CheckBox fx:id="checkDificultadMayor" layoutX="18.0" layoutY="677.0" mnemonicParsing="false" onAction="#checkDificultadMayorClick" prefHeight="39.0" prefWidth="122.0" text="Dificultad Mayor" />
+      <Label layoutX="175.0" layoutY="633.0" prefHeight="22.0" prefWidth="122.0" text="Tipo de juego:" />
+      <RadioButton fx:id="checkJugadorVSjugador" layoutX="178.0" layoutY="660.0" mnemonicParsing="false" onAction="#clickcheckJugadorVSjugador" text="Jugador VS jugador" />
+      <RadioButton fx:id="checkJugadorVScompu" layoutX="177.0" layoutY="686.0" mnemonicParsing="false" onAction="#clickcheckJugadorVScompu" text="jugador VS computadora" />
+      <Label layoutX="422.0" layoutY="682.0" text="Jugador 1" />
+      <Label layoutX="685.0" layoutY="683.0" text="Jugador 2" />
+      <TextArea fx:id="textImagenes" layoutX="903.0" layoutY="639.0" prefHeight="58.0" prefWidth="294.0" />
+      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="924.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/destructor%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="844.0" layoutY="609.0" text="destructor" />
-      <Label layoutX="905.0" layoutY="609.0" text="acorazado" />
-      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="908.0" layoutY="619.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="908.0" layoutY="643.0" text="destructor" />
+      <Label layoutX="980.0" layoutY="643.0" text="acorazado" />
+      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="997.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/acorazado.png" />
          </image>
       </ImageView>
-      <Label layoutX="968.0" layoutY="609.0" text="crucero" />
-      <ImageView fitHeight="62.0" fitWidth="46.0" layoutX="965.0" layoutY="622.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="1053.0" layoutY="643.0" text="crucero" />
+      <ImageView fitHeight="62.0" fitWidth="46.0" layoutX="1063.0" layoutY="656.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/crucero%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="1017.0" layoutY="608.0" text="submarino" />
-      <ImageView fitHeight="39.0" fitWidth="46.0" layoutX="1025.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="1115.0" layoutY="642.0" text="submarino" />
+      <ImageView fitHeight="39.0" fitWidth="46.0" layoutX="1140.0" layoutY="658.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/submarino%20(1).png" />
          </image>
       </ImageView>
-      <Button fx:id="btnInicarTiempo" layoutX="517.0" layoutY="567.0" mnemonicParsing="false" onAction="#btnIniciarJuego" prefHeight="39.0" prefWidth="110.0" text="Barcos Aleatorios" />
-      <TextField fx:id="textTiempo" layoutX="518.0" layoutY="1.0" prefHeight="26.0" prefWidth="122.0" />
-      <Label fx:id="labelTiempo" layoutX="521.0" layoutY="5.0" prefHeight="18.0" prefWidth="122.0" text="Tiempo:      " />
-      <RadioButton fx:id="rdbVerTablero1" layoutX="78.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnTablero1Click" prefHeight="18.0" prefWidth="110.0" text="Mostrar flota" />
-      <Label fx:id="labelIniciar" layoutX="552.0" layoutY="567.0" prefHeight="14.0" prefWidth="39.0" text="Iniciar" />
-      <RadioButton fx:id="rdbVerTablero2" layoutX="966.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnTablero2Click" prefHeight="18.0" prefWidth="110.0" text="Mostrar flota" />
+      <Button fx:id="btnInicarTiempo" layoutX="520.0" layoutY="618.0" mnemonicParsing="false" onAction="#btnIniciarJuego" prefHeight="30.0" prefWidth="136.0" text="Barcos Aleatorios" />
+      <TextField fx:id="textTiempo" layoutX="532.0" layoutY="6.0" prefHeight="26.0" prefWidth="122.0" />
+      <Label fx:id="labelTiempo" layoutX="534.0" layoutY="7.0" prefHeight="25.0" prefWidth="122.0" text="Tiempo:      " />
+      <RadioButton fx:id="rdbVerTablero1" layoutX="215.0" layoutY="118.0" mnemonicParsing="false" onAction="#btnTablero1Click" prefHeight="18.0" prefWidth="110.0" text="Mostrar flota" />
+      <Label fx:id="labelIniciar" layoutX="563.0" layoutY="599.0" prefHeight="14.0" prefWidth="46.0" text="Iniciar" />
+      <RadioButton fx:id="rdbVerTablero2" layoutX="837.0" layoutY="118.0" mnemonicParsing="false" onAction="#btnTablero2Click" prefHeight="22.0" prefWidth="122.0" text="Mostrar flota" />
+      <Button fx:id="btnSalirDelJuego" layoutX="559.0" layoutY="730.0" mnemonicParsing="false" onAction="#btnClickSalirDelJuego" text="Salir" />
    </children>
 </AnchorPane>

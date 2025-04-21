@@ -1,0 +1,99 @@
+/* --------------------- ESTILO GLOBAL --------------------- */
+.root {
+    -fx-font-family: "Consolas", "Segoe UI", monospace;
+    -fx-font-size: 11px;
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #00c8ff;
+}
+
+/* --------------------- LABEL --------------------- */
+.label {
+    -fx-background-color: #222;
+    -fx-text-fill: #00c8ff;
+    -fx-font-size: 11px;
+    -fx-font-family: "Lucida Console", monospace;
+}
+
+/* --------------------- BOTONES --------------------- */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #00c8ff, #006b80);
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-background-radius: 6;
+    -fx-padding: 8px 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #00c8ff, 4, 0.3, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #00e6ff, #008c9e);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.button:pressed {
+    -fx-background-color: #004f5e;
+    -fx-text-fill: #00e6ff;
+}
+
+/* --------------------- TEXTAREA Y TEXTFIELD --------------------- */
+.text-area, .text-field {
+    -fx-background-color: #222;
+    -fx-text-fill: #00c8ff;
+    -fx-font-size: 11px;
+    -fx-font-family: "Lucida Console", monospace;
+    -fx-border-color: #00c8ff;
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 6px;
+}
+
+.text-area .content, .text-field .content {
+    -fx-background-color: #222;
+}
+
+/* --------------------- RADIOBUTTON --------------------- */
+.radio-button {
+    -fx-text-fill: #00c8ff;
+    -fx-font-size: 11px;
+    -fx-padding: 4px;
+    -fx-cursor: hand;
+}
+
+.radio-button .radio {
+    -fx-border-color: #00c8ff;
+    -fx-background-color: #1a1a1a;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #00c8ff;
+}
+
+/* --------------------- CHECKBOX --------------------- */
+.check-box {
+    -fx-text-fill: #00c8ff;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+
+.check-box .box {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #00c8ff;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #00c8ff;
+}
+
+/* --------------------- ANIMACIÓN PULSANTE A BOTONES --------------------- */
+@keyframes pulse {
+    0%   { -fx-scale-x: 1; -fx-scale-y: 1; }
+    50%  { -fx-scale-x: 1.02; -fx-scale-y: 1.02; }
+    100% { -fx-scale-x: 1; -fx-scale-y: 1; }
+}
+
+.button {
+    -fx-animation: pulse 1s infinite ease-in-out;
+}

@@ -1,13 +1,9 @@
 com\mycompany\proyecto_1\ashlydelgado\App.class
-controllers\DificultadesController.class
-Modelos\crucero.class
-Modelos\Barcos.class
-controllers\AcercaDeController.class
 Modelos\Juego.class
+Modelos\Sonido.class
+controllers\DificultadesController.class
+controllers\AcercaDeController.class
 Modelos\Jugador.class
 module-info.class
-Modelos\submarino.class
 controllers\MenuController.class
 controllers\IniciarJuego.class
-Modelos\destructor.class
-Modelos\acorazado.class

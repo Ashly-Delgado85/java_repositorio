@@ -47,5 +47,30 @@ public class Juego {
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
-
+    
+     //funcion para saber cuantas casillas quedan en el juagador 1
+    public int botesFloteJugador1(){
+        int cantidadCasillaFlote = 0;
+         for (int i = 0; i < jugador1.getMatrizDelJuego().length; i++) {
+            for (int j = 0; j < jugador1.getMatrizDelJuego()[i].length; j++) {
+                if(jugador1.getMatrizDelJuego()[i][j]>0){
+                    cantidadCasillaFlote++;
+                }
+            }
+        }
+        return cantidadCasillaFlote;
+    }
+    
+    //funcion para saber cuantas casillas quedan en el juagador 2
+    public int botesFloteJugador2(){
+        int cantidadCasillaFlote = 0;
+            for (int i = 0; i < jugador2.getMatrizDelJuego().length; i++) {
+                for (int j = 0; j < jugador2.getMatrizDelJuego()[i].length; j++) {
+                if(jugador2.getMatrizDelJuego()[i][j]>0){
+                    cantidadCasillaFlote++;
+                }
+            }
+        }
+        return cantidadCasillaFlote;
+    }
 }
