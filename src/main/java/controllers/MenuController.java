@@ -4,6 +4,7 @@
  */
 package controllers;
 
+import Modelos.Sonido;
 import com.mycompany.proyecto_1.ashlydelgado.App;
 import java.io.IOException;
 import java.net.URL;
@@ -21,11 +22,14 @@ import javafx.scene.layout.AnchorPane;
  * @author Ashly
  */
 public class MenuController implements Initializable {
-
+    
     @FXML
     private Button btnAcercaDe;
     @FXML
     private Button btnEmpezar;
+    
+     Sonido sound = new Sonido();
+
 
 
     /**
@@ -34,6 +38,7 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+   
     }    
     
 
@@ -41,15 +46,21 @@ public class MenuController implements Initializable {
     //manda a pantalla del acerca
     private void btnAcercaDeClick(ActionEvent event) throws IOException {
         App.setRoot("/fxml/acercaDe");
+       sonidoClick();
     }
 
     @FXML
     //manda a pantalla de dificultad
     private void btnEmpezarClick(ActionEvent event) throws IOException{
         App.setRoot("/fxml/Dificultades");
+       sonidoClick();
     }
 
-    
+    private void sonidoClick(){
+        sound.cargarSonido("/sonidos/click.wav",false);
+        sound.sonar();
+    }
+   
 
 
     

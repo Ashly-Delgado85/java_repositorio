@@ -1,5 +1,6 @@
 package com.mycompany.proyecto_1.ashlydelgado;
 
+import Modelos.Sonido;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,13 +12,15 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
+ 
 public class App extends Application {
-
+  Sonido sound = new Sonido();
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/fxml/menu"), 1107, 677);
+        scene = new Scene(loadFXML("/fxml/menu"), 1200, 800);
+        sonidoPrincipal();
         stage.setScene(scene);
         stage.show();
     }
@@ -33,6 +36,11 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+    
+        private void sonidoPrincipal(){
+        sound.cargarSonido("/sonidos/batalla.wav",false);
+        sound.sonar();
     }
 
 }
