@@ -69,11 +69,9 @@ public class DificultadesController implements Initializable {
           "-Barcos aleatorios es la opcion para empezar el juego, se acomodan los barcos y empieza la batalla\n"+
           "Regla del ganador\n\n"+
           "-Solo habrá un ganador:\n"+
-          "El jugador que dispare todos los barcos de la flota del oponente antes que el tiempo finalice \n"+
+          "El jugador que dispare todos los barcos de la flota del oponente antes que el tiempo finalice sera el ganador\n"+
           "El jugador que pierde tiene derecho a un tiro de gracia: ultimo tiro para alcanzar un empate\n"+
-          "Si el tiempo termina gana el que temga mas barcos derrotados\n"+
-          "Si hay un empate:\n"+
-          "El jugador que tenga mas barcos derrotados ese se llevara el gane del juego."
+          "Si el tiempo ocurre un empate pero habra un ganador con el jugador que tenga mas barcos derrotados."
         );
         sonidoClick();
     }
