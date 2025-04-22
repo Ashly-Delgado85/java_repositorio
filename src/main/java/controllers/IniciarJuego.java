@@ -373,12 +373,10 @@ public class IniciarJuego implements Initializable {
     private RadioButton rdbVerTablero2;
     @FXML
     private Button btnSalirDelJuego;
+  
+    Sonido sound = new Sonido(); //sonido
+    Sonido fondoMusical = new Sonido(); // sonido del juego en loop
     
-     Sonido sound = new Sonido(); //sonido
-     Sonido fondoMusical = new Sonido(); // sonido del juego en loop
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Al inicio, ninguna dificultad está seleccionada
@@ -405,15 +403,17 @@ public class IniciarJuego implements Initializable {
         //Validación de no iniciar hasta que se hayan colocado los nombres de los jugadores 
         if (checkJugadorVScompu.isSelected()) {
             if (nombreJugador1.isEmpty()) {
-               mostrarMensajeExtras("Debe ingresar su nombre para jugar contra la computadora.");
-               return;
-           }
+                mostrarMensajeExtras("Debe ingresar su nombre para jugar contra la computadora.");
+                return;
+            }
+            juegaLaComputadora = false;
         } else {
             if (nombreJugador1.isEmpty() || nombreJugador2.isEmpty()) {
                 mostrarMensajeExtras("Debe ingresar los nombres de ambos jugadores antes de iniciar.");
                 return;
             }
         }
+        
         // Validación de dificultad
         if (!(checkDificultadMenor.isSelected() || checkDificultadMedia.isSelected() || checkDificultadMayor.isSelected())) {
             mostrarMensajeExtras("Debe seleccionar una dificultad para comenzar el juego.");
@@ -437,6 +437,7 @@ public class IniciarJuego implements Initializable {
         if(checkJugadorVScompu.isSelected()){
             juegaLaComputadora = true;
         }else{
+            juegaLaComputadora = false;
             agregarEventosBoton(gridPanel1,1);// se habilita poder disparar jugador 2
         }
     }
@@ -583,8 +584,6 @@ public class IniciarJuego implements Initializable {
         }
     }
     
-
-    
     //funcion de iniciar tiempo
     public void iniciarCronometro() {
         sonidoClick();
@@ -594,7 +593,6 @@ public class IniciarJuego implements Initializable {
             if (tiempoRestante <= 0) {
                 timeline.stop(); //se detiene el tiempo a llegar a cero
                 labelTiempo.setText("SE ACABÓ EL TIEMPO");//si se acabo el tiempo 
-                JuegoActivo = false;
             }
             Platform.runLater(() -> {
                 if(tiempoRestante <=0 && labelTiempo.getText()=="SE ACABÓ EL TIEMPO" && JuegoActivo){
@@ -617,18 +615,18 @@ public class IniciarJuego implements Initializable {
             mensaje = "¡Es un empate!";
             titulo = "Empate 🤝";
         }else if(juego.botesFloteJugador1() > juego.botesFloteJugador2()) {
-            mensaje = "¡Ganó el Jugador 1!";
+            mensaje = "¡Ganó el Jugador 1!" + textNombreJugador1.getText();
             titulo = "¡Victoria! 🏆";
         } else {
-            mensaje = "¡Ganó el Jugador 2!";
+            mensaje = "¡Ganó el Jugador 2!" + textNombreJugador2.getText();
             titulo = "¡Victoria! 🏆";
         }
-        mostrarPantallaGanador(titulo, mensaje);
+       mostrarPantallaGanador(titulo, mensaje); 
     }
 
     //funcion de mostrar pantalla cuando hay un ganador
     private void mostrarPantallaGanador(String titulo, String mensaje) {
-        
+        JuegoActivo = false;
         juegoNuevo = false;
         fondoMusical.parar();
         sonidoVictoria();

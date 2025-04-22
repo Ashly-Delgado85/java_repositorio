@@ -232,26 +232,26 @@
       <Label layoutX="422.0" layoutY="682.0" text="Jugador 1" />
       <Label layoutX="685.0" layoutY="683.0" text="Jugador 2" />
       <TextArea fx:id="textImagenes" layoutX="903.0" layoutY="639.0" prefHeight="58.0" prefWidth="294.0" />
-      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="924.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="917.0" layoutY="648.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/destructor%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="908.0" layoutY="643.0" text="destructor" />
-      <Label layoutX="980.0" layoutY="643.0" text="acorazado" />
-      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="997.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="1052.0" layoutY="642.0" text="destructor" />
+      <Label layoutX="910.0" layoutY="642.0" text="acorazado" />
+      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="1060.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/acorazado.png" />
          </image>
       </ImageView>
-      <Label layoutX="1053.0" layoutY="643.0" text="crucero" />
-      <ImageView fitHeight="62.0" fitWidth="46.0" layoutX="1063.0" layoutY="656.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="989.0" layoutY="642.0" text="crucero" />
+      <ImageView fitHeight="62.0" fitWidth="46.0" layoutX="990.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/crucero%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="1115.0" layoutY="642.0" text="submarino" />
-      <ImageView fitHeight="39.0" fitWidth="46.0" layoutX="1140.0" layoutY="658.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="1126.0" layoutY="642.0" text="submarino" />
+      <ImageView fitHeight="39.0" fitWidth="46.0" layoutX="1137.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/submarino%20(1).png" />
          </image>

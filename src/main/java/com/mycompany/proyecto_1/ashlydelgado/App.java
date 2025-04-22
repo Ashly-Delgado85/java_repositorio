@@ -19,7 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/fxml/menu"), 1200, 800);
+        scene = new Scene(loadFXML("/fxml/menu"), 1200, 770);
         sonidoPrincipal();
         stage.setScene(scene);
         stage.show();
